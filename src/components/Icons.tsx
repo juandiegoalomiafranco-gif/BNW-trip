@@ -20,8 +20,8 @@ export const IconFood = (p: P) => (
 export const IconPlace = (p: P) => (
   <svg {...base} {...p}><path d="M12 21s7-5.7 7-11a7 7 0 1 0-14 0c0 5.3 7 11 7 11Z" /><circle cx="12" cy="10" r="2.5" /></svg>
 )
-export const IconCheck = (p: P) => (
-  <svg {...base} {...p}><path d="M9 11l2 2 4-4" /><rect x="3" y="4" width="18" height="17" rx="3" /></svg>
+export const IconTask = (p: P) => (
+  <svg {...base} {...p}><rect x="5" y="4" width="14" height="17" rx="2.5" /><path d="M9 4V3h6v1M9 10h6M9 14h6M9 18h3" /></svg>
 )
 export const IconMap = (p: P) => (
   <svg {...base} {...p}><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2Z" /><path d="M9 4v14M15 6v14" /></svg>

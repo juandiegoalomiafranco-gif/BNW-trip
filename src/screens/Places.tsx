@@ -20,15 +20,7 @@ export function Places() {
 
   return (
     <>
-      <input
-        value={q}
-        onChange={(e) => setQ(e.target.value)}
-        placeholder="Buscar un lugar…"
-        style={{
-          width: '100%', padding: 12, fontSize: 16, borderRadius: 13,
-          border: '1px solid var(--line)', background: 'var(--card)', color: 'inherit', marginBottom: 12,
-        }}
-      />
+      <input className="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Buscar un lugar…" />
 
       {!q && (
         <div className="chips">
@@ -44,18 +36,18 @@ export function Places() {
       )}
 
       {!q && (
-        <div className="card">
+        <header className="day-head">
           <p>{trip.cities.find((c) => c.id === city)?.blurb}</p>
-        </div>
+        </header>
       )}
 
       {list.length === 0 && <div className="empty">No hay nada con ese nombre.</div>}
 
       {list.map((p) => (
-        <div className="card" key={p.id}>
+        <div className="card place" key={p.id}>
           <span className="kind">{p.category}</span>
           <h3>{p.name}</h3>
-          {p.address && <p className="muted" style={{ marginTop: 2 }}>{p.address}</p>}
+          {p.address && <p className="place-addr">{p.address}</p>}
           <BriefingBlock place={p} label="Briefing" />
         </div>
       ))}

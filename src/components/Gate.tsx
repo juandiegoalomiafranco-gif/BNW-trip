@@ -6,9 +6,8 @@ async function sha256Hex(text: string): Promise<string> {
   return [...new Uint8Array(buf)].map((b) => b.toString(16).padStart(2, '0')).join('')
 }
 
-export function Gate({ onUnlock }: { onUnlock: (name: string) => void }) {
+export function Gate({ onUnlock }: { onUnlock: () => void }) {
   const [pass, setPass] = useState('')
-  const [name, setName] = useState('')
   const [error, setError] = useState('')
   const [busy, setBusy] = useState(false)
 
@@ -20,7 +19,7 @@ export function Gate({ onUnlock }: { onUnlock: (name: string) => void }) {
     try {
       const hash = await sha256Hex(pass.trim().toLowerCase())
       if (hash === PASSWORD_SHA256) {
-        onUnlock(name.trim() || 'Viajero')
+        onUnlock()
       } else {
         setError('Esa no es. Intenta otra vez.')
         setPass('')
@@ -38,13 +37,6 @@ export function Gate({ onUnlock }: { onUnlock: (name: string) => void }) {
         <img className="logo" src="./icon.svg" alt="" />
         <h1>BNW Trip</h1>
         <div className="sub">Boston · New York · Washington<br />30 de septiembre — 9 de octubre</div>
-        <input
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          placeholder="Tu nombre"
-          autoComplete="given-name"
-          aria-label="Tu nombre"
-        />
         <input
           value={pass}
           onChange={(e) => setPass(e.target.value)}

@@ -35,6 +35,7 @@ se guarda y la app se actualiza.
   mealId: 'm-d2-almuerzo',   // engancha la franja de meals.ts
   mapsQuery: 'Harvard Yard Cambridge MA',
   meetingPoint: true,        // lo pinta como punto de encuentro obligatorio
+  nearby: 'Lo que queda a pocos pasos de la ruta, si sobra un momento.',
 }
 ```
 
@@ -79,6 +80,7 @@ tres en la misma zona, así que no hay que hacer cuentas entre ciudades.
 ```
 
 Para que un restaurante aparezca en un día, su id tiene que estar en el `picks` de esa franja.
+El primero de `picks` es el que sale destacado dentro del itinerario; conviene ponerlo por cercanía.
 
 ## Un lugar con briefing (`places.ts`)
 
@@ -104,3 +106,31 @@ Para que un restaurante aparezca en un día, su id tiene que estar en el `picks`
 
 Para que el briefing salga dentro de un evento, poner su id en el `placeIds` de ese evento.
 En la pestaña **Lugares** aparecen todos, estén o no enganchados a un evento.
+
+## Una tarea (`tasks.ts`)
+
+```ts
+{
+  id: 't-world-bank',
+  cityId: 'dc',
+  date: '2026-10-06',
+  eventIds: ['d7-04'],       // eventos de days.ts donde se hace; el primero marca la hora
+  title: 'Preguntas para el Banco Mundial',
+  topic: 'Como aparece en la tabla del fieldwork',
+  mode: 'preguntar',         // exponer | preguntar
+  partner: 'Con quién se comparte',
+  where: 'Dónde y a qué hora',
+  intro: 'Dos o tres líneas.',
+  heads: 'Advertencia importante (opcional).',
+  sections: [{ title: 'Contexto', body: ['Párrafo'], bullets: ['Punto'], table: { head: ['A', 'B'], rows: [['1', '2']] } }],
+  script: ['Frases para leer en voz alta.'],
+  closing: 'Frase de cierre (opcional).',
+  questions: [{ label: 'Pregunta 1', en: 'In English…', es: 'En español', why: 'Por qué funciona', followUp: 'Repregunta' }],
+  backups: [ /* igual que questions */ ],
+  tips: ['Cómo preguntar'],
+  caveats: ['Datos que las fuentes no confirman del todo'],
+  sources: ['Fuente'],
+}
+```
+
+Si el id de un evento está en `eventIds`, el evento sale con la etiqueta "Tu tarea" y un botón al guion.

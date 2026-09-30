@@ -44,6 +44,8 @@ export interface TripEvent {
   mapsQuery?: string
   /** Punto de encuentro obligatorio del colegio. */
   meetingPoint?: boolean
+  /** Lo que queda a pocos pasos de la ruta, si sobra un momento. No es una parada nueva. */
+  nearby?: string
 }
 
 export interface Day {
@@ -133,10 +135,47 @@ export interface Place {
   briefing: Briefing
 }
 
-export interface ChecklistItem {
+export interface TaskSection {
+  title: string
+  body?: string[]
+  bullets?: string[]
+  table?: { head: [string, string]; rows: [string, string][] }
+}
+
+export interface TaskQuestion {
+  label: string
+  /** La pregunta tal como se dice, en inglés. */
+  en: string
+  /** Qué estás preguntando, en español, para entenderla bien. */
+  es: string
+  why?: string
+  /** Repregunta corta si la respuesta queda vaga. */
+  followUp?: string
+}
+
+/** Una tarea del fieldwork que le toca a Juan Diego. */
+export interface Task {
   id: string
-  text: string
-  group: string
+  cityId: CityId
+  date: string
+  /** Eventos de days.ts donde se hace la tarea. El primero marca la hora. */
+  eventIds: string[]
+  title: string
+  /** Tema tal como aparece en la tabla del fieldwork. */
+  topic: string
+  mode: 'exponer' | 'preguntar'
+  partner: string
+  where: string
+  intro: string
+  heads?: string
+  sections: TaskSection[]
+  script: string[]
+  closing?: string
+  questions?: TaskQuestion[]
+  backups?: TaskQuestion[]
+  tips?: string[]
+  caveats?: string[]
+  sources: string[]
 }
 
 export interface Trip {
@@ -152,5 +191,4 @@ export interface Trip {
   meals: MealSlot[]
   restaurants: Restaurant[]
   places: Place[]
-  packing: ChecklistItem[]
 }

@@ -10,13 +10,13 @@ y funciona sin señal una vez que se abrió la primera vez.
 
 | Pestaña | Para qué |
 |---|---|
-| **Hoy** | Qué está pasando en este momento y qué sigue, con la hora local del destino y la de Cali. |
-| **Plan** | El cronograma completo, día por día y hora por hora, tal como viene en el logbook. |
-| **Comida** | Cada franja de comida del cronograma con las opciones del colegio, recomendaciones que quedan a pie de donde vamos a estar, y una lista propia de sitios "sí o sí". |
+| **Hoy** | Qué está pasando en este momento y qué sigue, con la hora local del destino y la de Cali, y aviso si ese día hay tarea. |
+| **Plan** | El cronograma completo, día por día. El día de hoy muestra arriba la hora, lo que toca ahora y lo que sigue, y baja solo hasta el evento en curso. Cada comida trae dentro la recomendación más cercana a la ruta. |
+| **Comida** | Cada franja de comida del cronograma: una recomendación destacada, las demás opciones plegadas, las del colegio y una lista propia de sitios "sí o sí". |
 | **Lugares** | Briefing histórico de cada parada, con línea de tiempo, qué mirar y las preguntas de reflexión del logbook. |
-| **Yo** | Checklist de maleta y documentos, y el progreso de restaurantes visitados. |
+| **Tareas** | Las tres tareas del fieldwork (Crispus Attucks, 11-S y Banco Mundial) con guion, preguntas en inglés, contexto y fuentes. |
 
-Todo lo que se marque (restaurantes visitados, maleta) se guarda en **ese teléfono**.
+Lo que se marque (restaurantes visitados, mi lista) se guarda en **ese teléfono**.
 No se sincroniza entre dispositivos.
 
 ## Correr en local
@@ -54,6 +54,7 @@ Todo el contenido vive en `src/data/`, en archivos de TypeScript que se leen com
 - `meals.ts` — cada franja de comida: hora, zona, opciones del colegio y recomendaciones.
 - `restaurants.ts` — la lista de comida. `bestSlot` amarra cada sitio a la franja donde encaja.
 - `places.ts` — los briefings históricos.
+- `tasks.ts` — las tareas del fieldwork. `eventIds` las engancha a los eventos del cronograma.
 - `types.ts` — la forma de cada uno de esos objetos.
 
 Ver [`DATOS.md`](./DATOS.md) para los detalles del formato.
