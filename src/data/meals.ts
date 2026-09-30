@@ -3,7 +3,8 @@ import type { MealSlot } from './types'
 /**
  * Cada franja de comida del cronograma.
  * `official` son las opciones que ya trae el logbook del colegio.
- * `picks` son recomendaciones que caen a pie de donde vamos a estar a esa hora.
+ * `picks` son recomendaciones que caen a pie de donde vamos a estar a esa hora;
+ * la primera es la que sale destacada dentro del itinerario.
  */
 export const meals: MealSlot[] = [
   // ---------------- BOSTON ----------------
@@ -19,8 +20,8 @@ export const meals: MealSlot[] = [
     id: 'm-d2-almuerzo', date: '2026-10-01', kind: 'almuerzo', start: '11:30', end: '13:30',
     cityId: 'boston', área: 'Harvard Square, Cambridge',
     official: ['Opciones libres en Harvard Square'],
-    picks: ['bos-felipes', 'bos-bartleys', 'bos-tatte-harvard', 'bos-clover'],
-    note: 'La hora exacta no esta fijada en el logbook. El punto de encuentro es Harvard Square a la 1:40 pm, así que hay que comer rápido y barato.',
+    picks: ['bos-clover', 'bos-felipes', 'bos-tatte-harvard', 'bos-bartleys'],
+    note: 'La hora exacta no está fijada en el logbook y el punto de encuentro es Harvard Square a la 1:40 pm: hay que comer rápido y barato. Clover y Felipe’s son lo más rápido y quedan en la misma plaza.',
   },
   {
     id: 'm-d2-cena', date: '2026-10-01', kind: 'cena', start: '20:00', end: '22:00',
@@ -67,14 +68,14 @@ export const meals: MealSlot[] = [
     id: 'm-d5-almuerzo', date: '2026-10-04', kind: 'almuerzo', start: '13:00', end: '14:30',
     cityId: 'nyc', área: 'Financial District',
     official: ['Hudson Eats en Brookfield Place', 'The Oculus (Westfield WTC)', 'Fulton Center', 'Eataly NYC Downtown'],
-    picks: ['nyc-eataly-downtown', 'nyc-hudson-eats', 'nyc-fraunces'],
+    picks: ['nyc-hudson-eats', 'nyc-eataly-downtown', 'nyc-fraunces'],
     note: 'Venimos del 9/11 Museum, que pega duro. Hudson Eats tiene ventanales al Hudson y es el sitio más tranquilo para bajar el golpe.',
   },
   {
     id: 'm-d5-cena', date: '2026-10-04', kind: 'cena', start: '16:30', end: '20:00',
     cityId: 'nyc', área: 'St. George, Staten Island',
     official: ['Empire Outlets y alrededores'],
-    picks: ['nyc-enoteca-maria', 'nyc-empire-outlets'],
+    picks: ['nyc-empire-outlets', 'nyc-enoteca-maria'],
     note: 'Tres horas y media: es la franja más larga de todo el viaje. Staten Island tiene poca oferta, pero Enoteca Maria es una rareza que vale la pena si se reserva.',
   },
   { id: 'm-d6-desayuno', date: '2026-10-05', kind: 'desayuno', start: '06:30', cityId: 'nyc', área: 'The New Yorker Hotel', official: ['Desayuno incluido en el hotel'], picks: [] },

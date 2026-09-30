@@ -1,5 +1,5 @@
 // Cache sencillo para que la app abra sin datos (roaming, metro, avion).
-const CACHE = 'bnw-trip-v1'
+const CACHE = 'bnw-trip-v2'
 
 self.addEventListener('install', (e) => {
   self.skipWaiting()
